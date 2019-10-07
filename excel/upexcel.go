@@ -21,7 +21,7 @@ func Readbook5(excel map[int]string) ([]string, []string) {
 	// fmt.Println(rows[1][0])
 	arr1 := make([]string, 0, 50)
 	arr2 := make([]string, 0, 50)
-	for i := 3; i < 41; i++ {
+	for i := 3; i < 46; i++ {
 		cellB, _ := book5.GetCellValue(book5.GetSheetName(1), ("B" + strconv.Itoa(i)))
 		cellC, _ := book5.GetCellValue(book5.GetSheetName(1), ("C" + strconv.Itoa(i)))
 		arr1 = append(arr1, cellB)
@@ -57,7 +57,7 @@ func Readbook1(excel map[int]string) map[int][]string {
 	// rows, _ := book1.GetRows(book1.GetSheetName(1))
 
 	fmt.Println(book1.GetCellValue(book1.GetSheetName(1), "B42"))
-	for i := 2; i < 39; i++ {
+	for i := 2; i < 44; i++ {
 		arr1 := make([]string, 0, 16)
 		// f64, err := strconv.ParseFloat(rows[i][2], 64)
 		// if err != nil {
@@ -147,7 +147,7 @@ func Readbook2(excel map[int]string) map[int][]string {
 	}
 	// rows, _ := book2.GetRows(book2.GetSheetName(1))
 
-	for i := 2; i < 39; i++ {
+	for i := 2; i < 44; i++ {
 		arr1 := make([]string, 0, 3)
 		// fmt.Println(f64)
 		// fmt.Printf("v1 type:%T\n", f64)
@@ -165,6 +165,7 @@ func Readbook2(excel map[int]string) map[int][]string {
 
 }
 
+//保存 外送部数据记录表 10.02.xlsx
 func Writebook3(excel map[int]string, arrs map[int][]string, arry1 []string, arry2 []string) {
 
 	defer func() {
@@ -180,7 +181,7 @@ func Writebook3(excel map[int]string, arrs map[int][]string, arry1 []string, arr
 	}()
 
 	book3, _ := excelize.OpenFile("./" + excel[4])
-	for i := 2; i < 39; i++ {
+	for i := 2; i < 44; i++ {
 		cellC, err1 := strconv.ParseFloat(arrs[i][0], 64)
 		cellD, err2 := strconv.ParseFloat(arrs[i][1], 64)
 		cellE, err3 := strconv.ParseFloat(arrs[i][2], 64)
@@ -256,12 +257,17 @@ func Writebook3(excel map[int]string, arrs map[int][]string, arry1 []string, arr
 	}
 	book3.Save()
 }
+
+//保存外卖差评截图 10.02.xlsx
 func Writebook4(excel map[int]string, arrs map[int][]string) {
 	book4, _ := excelize.OpenFile("./" + excel[5])
 	// number, _ := strconv.Atoi(excel[1])
 	fmt.Println(arrs[2])
+	fmt.Println("~~~~~~~~~~~~~~~")
+	fmt.Println(book4.GetSheetName(100))
+	fmt.Println("~~~~~~~~~~~~~~~")
 
-	for i := 2; i < 39; i++ {
+	for i := 2; i < 44; i++ {
 		arr1, err1 := strconv.Atoi(arrs[i][0])
 		arr2, err2 := strconv.Atoi(arrs[i][1])
 		arr3, err3 := strconv.Atoi(arrs[i][2])
