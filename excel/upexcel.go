@@ -264,7 +264,11 @@ func Writebook4(excel map[int]string, arrs map[int][]string) {
 	// number, _ := strconv.Atoi(excel[1])
 	fmt.Println(arrs[2])
 	fmt.Println("~~~~~~~~~~~~~~~")
-	fmt.Println(book4.GetSheetName(100))
+	fmt.Println(len(book4.GetSheetMap()))
+	if "" == book4.GetSheetName(100) {
+		fmt.Println("一样一样的")
+	}
+
 	fmt.Println("~~~~~~~~~~~~~~~")
 
 	for i := 2; i < 44; i++ {
